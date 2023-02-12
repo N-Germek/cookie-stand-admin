@@ -5,6 +5,7 @@
 ### Author: Natalija Germek Clarke
 
 *Version 1.0* Initialization of Cookie Stand React App - 08 February, 2023
+*Version 2.0* Completed more Tailwinds CSS to match mock up - 11 February 2023
 
 ### Links and Resources
 

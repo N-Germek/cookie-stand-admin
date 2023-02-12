@@ -6,6 +6,8 @@
 
 *Version 1.0* Initialization of Cookie Stand React App - 08 February, 2023
 *Version 2.0* Completed more Tailwinds CSS to match mock up - 11 February 2023
+*Version 3.0* Initial component files created for next lab, started refactoring, updated data.js file, 
+updated README.md - 11 February 2023
 
 ### Links and Resources
 

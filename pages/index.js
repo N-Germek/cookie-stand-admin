@@ -44,8 +44,6 @@ export default function Home() {
                                 <input className="w-full" type='number' class="form-input"/>
                             </div>
                                 <div>
-                            {/*</span>*/}
-                            {/*<span className="justify-center mx-3">*/}
                             <button className="box-border bg-green-600 p-9">Create</button>
                                 </div>
                             </span>

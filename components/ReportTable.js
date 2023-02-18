@@ -1,37 +1,52 @@
-// <ReportTable> details…
-// If reports is empty then render <h2>No Cookie Stands Available</h2>
+// ------------------------------ lab requirements:
 // If reports is not empty then render a table with thead,tbody and tfoot components.
-// link from data.js
-// created_cookie_stands={0} footer
-export default function ReportTable() {
-    return(
-        <form className="static" onSubmit={locationInputHandler}>
-            <h1 className="text-2xl flex item-center content justify-center my-4">Create a Cookie Stand</h1>
-            <span>
-                                <p className="flex flex-nowrap mt-5 p-2">Location
-                                    <input className="flew flex-auto mx-3 w-5/6" type='search' className="form-input"/>
-                                </p>
-                            </span>
-            <div className="flex flex-nowrap p-2">
-                            <span className="flex block">
-                            <div className="w-1/4 p-2 mx-1 my-2">
-                                <label className="block mx-auto">Minimum Customers per Hour</label>
-                                <input className="w-full" type='number' className="form-input"/>
-                            </div>
-                            <div className="w-1/4 p-2 mx-1 my-2">
-                                <label className="block mx-auto">Maximum Customers per Hour</label>
-                                <input className="w-full" type='number' className="form-input"/>
-                            </div>
-                            <div className="w-1/4 p-2 mx-1 my-2">
-                                <label className="block mx-auto">Average Cookies per Sale</label>
-                                <input className="w-full" type='number' className="form-input"/>
-                            </div>
-                                <div>
-                            <button className="box-border bg-green-600 p-9">Create</button>
-                                </div>
-                            </span>
-            </div>
-        </form>
+//
 
-    );
+export default function ReportTable( { standsReport: createdCookieStand } ) {
+
+        if (createdCookieStand.length === 0) {
+            return (
+                <h2>No Cookie Stands Available</h2>
+            );
+        } else {
+            return (
+                <table className="w-1/2 mx-auto my-4 border">
+                <thead>
+                    <tr>
+                        <th className="border border-black">Location</th>
+                        <th className="border border-black">6am</th>
+                        <th className="border border-black">7am</th>
+                        <th className="border border-black">8am</th>
+                        <th className="border border-black">9am</th>
+                        <th className="border border-black">10am</th>
+                        <th className="border border-black">11am</th>
+                        <th className="border border-black">12pm</th>
+                        <th className="border border-black">1pm</th>
+                        <th className="border border-black">2pm</th>
+                        <th className="border border-black">3pm</th>
+                        <th className="border border-black">4pm</th>
+                        <th className="border border-black">5pm</th>
+                        <th className="border border-black">6pm</th>
+                        <th className="border border-black">7pm</th>
+                        <th className="border border-black">Totals</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {createdCookieStand.map(item => (
+                        <tr key={item.id}>
+                            <td className="p-2 border border-black">{item.id}</td>
+                            <td className="p-2 border border-black">{item.location}</td>
+                            <td className="p-2 border border-black">{item.locationHourlySales}</td>
+                            {/*<td className="p-2 border border-black">{item.total_sales}</td>*/}
+                            {/*the below should be the location event handler*/}
+                            <td className="p-2 border border-black">{item.reply}</td>
+                        </tr>
+                    ))}
+                </tbody>
+                    <tfoot>
+                    {/*<td className="p-2 border border-black">{item.grandTotals}</td>*/}
+                    </tfoot>
+            </table>
+            );
+    };
 }

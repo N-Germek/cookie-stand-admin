@@ -1,14 +1,14 @@
 import Head from 'next/head';
-import {hours, replies} from '../data';
+import { hours, replies } from '../data';
 import { useState } from 'react';
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import ReportTable from '../components/ReportTable'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ReportTable from '../components/ReportTable';
 import CreateForm from "@/components/CreateForm";
 
 
 export default function Home() {
-    const [createdCookieStands, setCreatedCookieStand] = useState([]);
+    const [createdCookieStands, setCreatedCookieStands] = useState([]);
 
     function locationCreationHandler(Question) {
         //this is to get the list of replies from data for location data (replace random reply variable in both const's
@@ -22,7 +22,7 @@ export default function Home() {
             locationHourlySales: hours,
             id: createdCookieStands.length,
         };
-        setCreatedCookieStand( [...createdCookieStands, createdCookieStand]);
+        setCreatedCookieStands( [...createdCookieStands, createdCookieStand]);
     }
 
     function getLatestCookieStand() {
@@ -47,11 +47,11 @@ export default function Home() {
             <div className="flex item-center p-4 justify-center text-dark-gray">
                 <div className="box-border rounded bg-green-300 w-9/12 text-sm px-3 pd-2 relative">
                     <CreateForm createStand = { locationCreationHandler }/>
-                    {/*<ReportTable standsReport = { createdCookieStands }/>*/}
+                    <ReportTable standsReport = { createdCookieStands }/>
                 </div>
             </div>
             <div className="flex item-center p-4 justify-center text-dark-gray">
-                <p> <ReportTable standsReport = { getLatestCookieStand() }/> </p>
+                {/*<p> <ReportTable standsReport = { getLatestCookieStand() }/> </p>*/}
                 <p> Report Table Coming Soon... </p>
             </div>
         </main>

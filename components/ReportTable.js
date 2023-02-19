@@ -32,7 +32,7 @@ export default function ReportTable( { standsReport: createdCookieStand } ) {
                     </tr>
                 </thead>
                 <tbody>
-                    {createdCookieStand.map(item => (
+                    {Object.values(createdCookieStand).map(item => (
                         <tr key={item.id}>
                             <td className="p-2 border border-black">{item.id}</td>
                             <td className="p-2 border border-black">{item.location}</td>

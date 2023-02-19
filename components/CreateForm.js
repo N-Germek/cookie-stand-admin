@@ -7,7 +7,7 @@ export default function CreateForm( { createStand } ) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        createStand(event.target.question.value);
+        createStand(event.target.location.value);
         event.target.reset();
     }
 

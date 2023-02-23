@@ -2,16 +2,17 @@
 // If reports is not empty then render a table with thead,tbody and tfoot components.
 //
 
-export default function ReportTable( { standsReport: createdCookieStand } ) {
+export default function ReportTable({standsReport: createdCookieStand, grand_total_sales}) {
 
-        if (createdCookieStand.length === 0) {
-            return (
-                <h2>No Cookie Stands Available</h2>
-            );
-        } else {
-            return (
+    if (createdCookieStand.length === 0) {
+        return (
+            <h2>No Cookie Stands Available</h2>
+        );
+    } else {
+        return (
+            <div className="flex item-center p-4 justify-center text-dark-gray">
                 <table className="w-1/2 mx-auto my-4 border">
-                <thead>
+                    <thead>
                     <tr>
                         <th className="border border-black">Location</th>
                         <th className="border border-black">6am</th>
@@ -30,23 +31,40 @@ export default function ReportTable( { standsReport: createdCookieStand } ) {
                         <th className="border border-black">7pm</th>
                         <th className="border border-black">Totals</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {Object.values(createdCookieStand).map(item => (
                         <tr key={item.id}>
-                            <td className="p-2 border border-black">{item.id}</td>
                             <td className="p-2 border border-black">{item.location}</td>
-                            <td className="p-2 border border-black">{item.locationHourlySales}</td>
-                            {/*<td className="p-2 border border-black">{item.total_sales}</td>*/}
-                            {/*the below should be the location event handler*/}
-                            <td className="p-2 border border-black">{item.reply}</td>
+                            {/*<td className="p-2 border border-black">{item.locationHourlySales}</td>*/}
+                            {item.locationHourlySales.map((location_sales, sold) => (
+                                <td key={sold}>
+                                    {location_sales}
+                                </td>
+                            ))}
+                            <td>
+                                {item.locationHourlySales.reduce((accumulator, current) => accumulator + current)}
+                            </td>
+                            <td>
+                                {/*{item.locationHourlySales.reduce(())}*/}
+                            </td>
                         </tr>
+
                     ))}
-                </tbody>
+                    </tbody>
                     <tfoot>
-                    {/*<td className="p-2 border border-black">{item.grandTotals}</td>*/}
+                    <tr className="p-2 border border-black">
+                        <td>Totals</td>
+                        {grand_total_sales.map((total, index) => (
+                            <td key={index}>
+                                {total}
+                            </td>
+                        ))}
+                    </tr>
                     </tfoot>
-            </table>
-            );
-    };
+                </table>
+            </div>
+        );
+    }
+
 }

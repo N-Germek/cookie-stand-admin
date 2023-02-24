@@ -39,7 +39,8 @@ export default function Home() {
         for (const created_cookie_stand of createdCookieStands) {
             created_cookie_stand.locationHourlySales.forEach((hour, index) => {
                 hourly_totals[index] += hour
-                console.log("how does this look?:" + created_cookie_stand.locationHourlySales)
+
+
             })
         }
         return hourly_totals
@@ -47,11 +48,11 @@ export default function Home() {
 
     // function max_totals() {
     //
-    //     const max_array = new Array(get_grand_totals(hourly_sales))
-    //     for (max in max_array) {
-    //
-    //     }
-    //         })
+    //     const max_array = new Array(hourly_sales.length).fill(0)
+    //     for (const created_cookie_stand of createdCookieStands) {
+    //         created_cookie_stand.locationHourlySales.forEach((hour, index) => {
+    //         var max_array[index] += hour
+    //     })
     //     }
     //     return max_array
     // }

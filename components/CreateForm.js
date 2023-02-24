@@ -7,6 +7,7 @@ export default function CreateForm( { createStand } ) {
 
     function handleSubmit(event) {
         event.preventDefault();
+        console.log('event target: ' + event.target);
         createStand(event.target.location.value);
         event.target.reset();
     }
@@ -16,7 +17,7 @@ export default function CreateForm( { createStand } ) {
             <h1 className="text-2xl flex item-center content justify-center my-4">Create a Cookie Stand</h1>
             <span>
                                 <p className="flex flex-nowrap mt-5 p-2">Location
-                                    <input className="flew flex-auto mx-3 w-5/6" type='search'/>
+                                    <input name="location" className="flew flex-auto mx-3 w-5/6" type='search'/>
                                 </p>
                             </span>
             <div className="flex flex-nowrap p-2">
